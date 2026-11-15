@@ -1,0 +1,18 @@
+schema: 1
+id: org.fleet.rssrewrite
+name: RSS Rewrite
+description: Rewrite RSS item download URLs with shared regex rules.
+version: 1.0.0
+api: ">=1.0.0 <2.0.0"
+engines:
+  - rtorrent
+capabilities:
+  - urlrewrite.read
+  - urlrewrite.write
+frontend:
+  type: declarative
+  entry: ui/extension.json
+backend:
+  type: process
+  executable: bin/rssrewrite-worker
+  protocol: jsonrpc-2

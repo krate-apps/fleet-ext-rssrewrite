@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "extensionId": "org.fleet.rssrewrite",
+  "pages": [
+    {
+      "id": "rules",
+      "title": "RSS Rewrite",
+      "route": "/ext/org.fleet.rssrewrite/rules"
+    }
+  ],
+  "actions": [
+    {
+      "id": "clear-rules",
+      "label": "Clear all rules",
+      "target": "global",
+      "danger": true
+    }
+  ],
+  "panels": [
+    {
+      "id": "rssurlrewrite-settings",
+      "title": "RSS Rewrite",
+      "placement": "settings"
+    }
+  ],
+  "forms": [
+    {
+      "id": "rssurlrewrite-rules",
+      "title": "Rewrite rules",
+      "fields": [
+        {
+          "name": "rulesText",
+          "label": "Automation Rules",
+          "kind": "textarea",
+          "required": true,
+          "help": "One per line: Name|RE2 pattern|replacement|on (or off)",
+          "rows": 10
+        }
+      ],
+      "loadMethod": "ext.rssrewrite.getRules",
+      "submitMethod": "ext.rssrewrite.saveRules",
+      "description": "Adjust Rewrite rules — essentials first, extras under More options."
+    },
+    {
+      "id": "rssurlrewrite-test",
+      "title": "Test a URL",
+      "fields": [
+        {
+          "name": "url",
+          "label": "URL to rewrite",
+          "kind": "text",
+          "required": true,
+          "placeholder": "https://example.com/feed.xml"
+        }
+      ],
+      "description": "Adjust Test a URL — essentials first, extras under More options."
+    }
+  ]
+}
